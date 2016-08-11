@@ -16,7 +16,7 @@ class CreateReclamationAlertTable extends Migration
             $table->increments('id');
             $table->mediumText('message');
             $table->integer('alertType_id')->unsigned();
-            $table->foreign('alertType_id')->references('id')->on('alertTypes');
+            $table->foreign('alertType_id')->references('id')->on('alertTypes')->onDelete('set null');
             $table->timestamps();
 
         });

@@ -20,7 +20,7 @@ class CreateSouscategoryTable extends Migration
                 $table->mediumText('description');
                 $table->timestamps();
                 $table->integer('category_id')->unsigned();
-                $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
+                $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null')->onDelete('set null');
 
 
 
