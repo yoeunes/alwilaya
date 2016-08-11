@@ -19,7 +19,7 @@ class CreateReclamationTypeTable extends Migration
             $table->string('display_name');
             $table->mediumText('description');
             $table->timestamps();
-            
+
         });
     }
 
