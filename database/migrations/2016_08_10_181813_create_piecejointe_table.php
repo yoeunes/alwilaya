@@ -13,9 +13,20 @@ class CreatePiecejointeTable extends Migration
     public function up()
     {
         Schema::create('Pjointes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-        });
+
+
+                $table->increments('id');
+                $table->string('display_name');
+                $table->string('link');
+                $table->string('type');
+                $table->integer('size');
+                $table->string('owner_type');
+                $table->integer('owner_id')->unsigned();
+                //$table->foreign('owner_id')->references('id')->on('reclamations')->onDelete('set null');
+                $table->timestamps();
+
+
+            });
     }
 
     /**
