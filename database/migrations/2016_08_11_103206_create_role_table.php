@@ -19,7 +19,7 @@ class CreateRoleTable extends Migration
             $table->string('display_name');
             $table->mediumText('description');
             $table->timestamps();
-            
+
         });
     }
 
