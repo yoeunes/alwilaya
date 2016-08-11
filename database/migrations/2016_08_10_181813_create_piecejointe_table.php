@@ -22,8 +22,10 @@ class CreatePiecejointeTable extends Migration
                 $table->integer('size');
                 $table->string('owner_type');
                 $table->integer('owner_id')->unsigned();
-                //$table->foreign('owner_id')->references('id')->on('reclamations')->onDelete('set null');
-                $table->timestamps();
+                $table->foreign('owner_id')->references('id')->on('reclamations');
+                $table->integer('owner_type')->unsigned();
+                $table->foreign('owner_type')->references('id')->on('reclamationTypes');
+
 
 
             });
