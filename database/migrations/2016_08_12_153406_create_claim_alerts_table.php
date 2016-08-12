@@ -15,7 +15,7 @@ class CreateClaimAlertsTable extends Migration {
             $table->text('message');
             $table->integer('claimtype_id')->unsigned();
 
-            $table->foreign('claimtype_id')->references('id')->on('claim_types');
+            $table->foreign('alerttype_id')->references('id')->on('alert_types');
 
             $table->timestamps();
         });
