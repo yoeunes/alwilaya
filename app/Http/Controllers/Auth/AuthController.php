@@ -7,9 +7,11 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Auth;
+use Illuminate\Http\Request;
 
-class AuthController extends Controller
-{
+
+class AuthController extends Controller {
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
@@ -35,38 +37,67 @@ class AuthController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+    public function __construct() {
+        $this->middleware($this->guestMiddleware(), [ 'except' => 'logout' ]);
     }
 
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
-        ]);
+    protected function validator(array $data) {
+//        return Validator::make($data, [
+//            'name'     => 'required|max:255',
+//            'email'    => 'required|email|max:255|unique:users',
+//            'password' => 'required|min:6|confirmed',
+//        ]);
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return User
      */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+    protected function create(array $data) {
+//        return User::create([
+//            'name'     => $data[ 'name' ],
+//            'email'    => $data[ 'email' ],
+//            'password' => bcrypt($data[ 'password' ]),
+//        ]);
+    }
+
+    public function showRegistrationForm() {
+        return redirect('login');
+    }
+
+    public function getRegister() {
+        return redirect('auth/login'); // Or wherever
+    }
+
+    public function postRegister() {
+
+    }
+
+    /**
+     * Handle an authentication attempt.
+     *
+     * @return Response
+     */
+    public function authenticated(Request $request, $user) {
+        if (!$user->active) {
+
+            auth()->logout();
+
+            return back()->with('warning', 'Votre compte est désactivé, Veuillez contacté l\'administrateur.');
+        } else if ($user->deleted) {
+            auth()->logout();
+
+            return back()->with('warning', 'Ce compte est déjà supprimé, Veuillez contacté l\'administrateur.');
+        }
+
+        return redirect()->intended($this->redirectPath());
     }
 }
