@@ -4,9 +4,8 @@
     Alwilaya | Accueil
 @endsection
 
-@include('website.templates.layouts.header')
-
 @section('content')
+    @include('website.templates.layouts.header')
     <div id="page-content">
         <section class="box-content box-1">
             <div class="container">
