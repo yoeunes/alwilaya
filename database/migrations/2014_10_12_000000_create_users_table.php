@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration {
             $table->string('nom');
             $table->string('prenom');
             $table->string('photo');
-            $table->boolean('actif')->default(true);;
+            $table->boolean('active')->default(true);;
             $table->boolean('deleted')->default(false);;
             $table->string('cin');
             $table->string('tel_mobile');
