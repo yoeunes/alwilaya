@@ -121,7 +121,7 @@ footer .copyright { color : #333; font-size : 17px; letter-spacing : 1px; margin
 
 footer .wrap-footer { margin-top : -100px; padding : 30px 50px 10px 50px; background-color : #FFF; }
 
-footer ul.social-buttons li a { padding-top : 8px; display : block; width : 40px; height : 40px; border-radius : 50%; font-size : 20px; line-height : 40px; color : #FFF; background-color : #DE5781; transition-duration : 0.3s; }
+footer ul.social-buttons li a { display : block; width : 40px; height : 40px; border-radius : 50%; font-size : 20px; line-height : 40px; color : #FFF; background-color : #DE5781; transition-duration : 0.3s; }
 
 footer ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li a:active { background-color : #333; }
 
@@ -161,7 +161,6 @@ a.btn:focus { outline : 0; }
 
 @media (max-width : 995px) {
     .br { display : block; }
-    //.box-content.box-1 .box-item:first-child { margin-bottom : 0 !important; top : -140px; }
     .box-content.box-1 .box-item { margin-bottom : 120px; float : left; text-align : center; font-family : 'Open Sans', sans-serif; border-radius : 4px; background-color : rgba(255, 255, 255, 0.8); padding : 100px 0 20px 0; position : relative; width : 100%; margin-top : 100px; }
 }
 
