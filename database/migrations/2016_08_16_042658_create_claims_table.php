@@ -14,7 +14,6 @@ class CreateClaimsTable extends Migration {
             $table->increments('id');
             $table->string('objet');
             $table->text('message');
-            $table->boolean('status');
             $table->timestamp('date_envoi');
             $table->timestamp('date_reponse');
             $table->string('num_rec')->unique();
@@ -34,6 +33,9 @@ class CreateClaimsTable extends Migration {
 
             $table->integer('claimType_id')->unsigned();
             $table->foreign('claimType_id')->references('id')->on('claim_types');
+
+            $table->integer('claimStatus_id')->unsigned();
+            $table->foreign('claimStatus_id')->references('id')->on('claim_statuses');
 
             $table->timestamps();
         });
