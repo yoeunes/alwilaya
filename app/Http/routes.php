@@ -14,6 +14,8 @@
 
 Route::get('/', [ 'as' => 'home', 'uses' => 'WebsiteController@home' ]);
 Route::get('/contactUs', [ 'as' => 'contactUs', 'uses' => 'WebsiteController@contactUs' ]);
+Route::get('/addClaim/{step?}', [ 'as' => 'addClaim', 'uses' => 'WebsiteController@addClaim' ])->where('step', '[1-3]');
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
