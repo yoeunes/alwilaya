@@ -14,11 +14,11 @@
                 <li class="hidden">
                     <a href="#page-top"></a>
                 </li>
-                <li class="active">
-                    <a class="page-scroll" href="#">Accueil</a>
+                <li class="{{ starts_with(\Request::route()->getName(), 'home') ? 'active':'' }}">
+                    <a class="page-scroll" href="{{ url('/') }}">Accueil</a>
                 </li>
-                <li>
-                    <a class="page-scroll" href="#">Contactez-nous</a>
+                <li class="{{ starts_with(\Request::route()->getName(), 'contactUs') ? 'active':'' }}">
+                    <a class="page-scroll" href="{{ route('contactUs') }}">Contactez-nous</a>
                 </li>
             </ul>
         </div>
