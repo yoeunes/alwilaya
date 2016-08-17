@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+Route::get('/', [ 'as' => 'home', 'uses' => 'WebsiteController@home' ]);
+Route::get('/contactUs', [ 'as' => 'contactUs', 'uses' => 'WebsiteController@contactUs' ]);
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
