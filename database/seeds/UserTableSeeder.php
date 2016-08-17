@@ -1,7 +1,20 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: widyo 8
- * Date: 14/08/2016
- * Time: 18:26
- */
+use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
+
+
+class UserTableSeeder extends Seeder
+{
+
+    public function run()
+    {
+        DB::table('users')->delete();
+        User::create(array(
+            'name' => 'Chris Sevilleja',
+            'username' => 'sevilayha',
+            'email' => 'chris@scotch.io',
+            'password' => Hash::make('awesome'),
+        ));
+    }
+
+}
