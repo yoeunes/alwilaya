@@ -21,6 +21,7 @@ class AuthController extends Controller
     |
     */
 
+
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
     /**
@@ -28,7 +29,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new authentication controller instance.
@@ -43,30 +44,58 @@ class AuthController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+            // 'name' => 'required|max:255',
+            //'email' => 'required|email|max:255|unique:users',
+            //'password' => 'required|min:6|confirmed',
         ]);
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return User
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        //return User::create([
+        //  'name' => $data['name'],
+        //'email' => $data['email'],
+        //'password' => bcrypt($data['password']),
+        //]);
     }
+
+//////////////////
+    public function showRegistrationForm()
+    {
+        return redirect('login');
+    }
+
+    public function getRegister()
+    {
+        return redirect('auth/login'); // Or wherever
+    }
+
+    public function postRegister()
+    {
+    }
+
+    public function authenticated(Request $request, $user) {
+        if (!$user->active) {
+            auth()->logout();
+            return back()->with('warning', 'Votre compte est désactivé, Veuillez contacté l\'administrateur.');
+        } else if ($user->deleted) {
+            auth()->logout();
+            return back()->with('warning', 'Ce compte est déjà supprimé, Veuillez contacté l\'administrateur.');
+        }
+        //return redirect()->intended($this->redirectPath());
+        return redirect()->intended('/home');
+    }
+
 }
