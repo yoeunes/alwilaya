@@ -15,6 +15,7 @@
     <!--[if lt IE 9]>
     {!! Html::script('assets/js/html5shiv.js') !!}{!! Html::script('assets/js/respond.min.js') !!}
     <![endif]-->
+    @yield('style')
     <style>
         .text-head {
             color : #FFF;
@@ -43,5 +44,6 @@
         $(' #da-thumbs > li ').each(function () { $(this).hoverdir(); });
     });
 </script>
+@yield('script')
 </body>
 </html>
