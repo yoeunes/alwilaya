@@ -20,6 +20,9 @@ elixir(function (mix) {
     .copy('bower/font-awesome/css/font-awesome.min.css', 'public/assets/plugins/font-awesome/css/font-awesome.min.css')
     .copy('bower/font-awesome/fonts/', 'public/assets/plugins/font-awesome/fonts/')
 
+    .copy('bower/jquery.steps/demo/css/jquery.steps.css', 'public/assets/plugins/jquery.steps/css/jquery.steps.css')
+    .copy('bower/jquery.steps/build/jquery.steps.min.js', 'public/assets/plugins/jquery.steps/js/jquery.steps.min.js')
+
     .sass([
         'website.scss'
     ], 'public/assets/website/css/website.min.css');
