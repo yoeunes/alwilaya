@@ -46,6 +46,7 @@ p {
 
 a {
   color: #DE5781;
+  -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out; }
 
 a:hover, a:focus {
@@ -269,6 +270,7 @@ footer ul.social-buttons li a {
   line-height: 40px;
   color: #FFF;
   background-color: #DE5781;
+  -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s; }
 
 footer ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li a:active {
@@ -445,6 +447,7 @@ textarea {
     padding: 25px 0;
     border: 0;
     background-color: transparent;
+    -webkit-transition: padding .3s;
     transition: padding .3s; }
   .navbar-default.navbar-shrink {
     padding: 0 0;

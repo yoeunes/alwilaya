@@ -4,8 +4,31 @@
     Alwilaya | Contactez-nous
 @endsection
 
+@section('style')
+    <style>
+        #page-content {
+            width    : 100%;
+            height   : 100%;
+            display  : block;
+            position : relative;
+        }
+        
+        #page-content::after {
+            content    : "";
+            background : url('assets/website/images/reclamation.jpg');
+            opacity    : 0.1;
+            top        : 0;
+            left       : 0;
+            bottom     : 0;
+            right      : 0;
+            position   : absolute;
+            z-index    : -1;
+        }
+    </style>
+@endsection
+
 @section('content')
-    <div id="page-content" style="background: url('assets/website/images/reclamation.jpg');">
+    <div id="page-content">
         <div class="container">
             <div class="row">
                 <div id="main-content" class="col-md-8 col-md-offset-2">

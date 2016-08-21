@@ -5,16 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>@yield('title')</title>
-    {!! Html::style('assets/plugins/bootstrap/dist/css/bootstrap.min.css') !!}
+    {!! Html::style('assets/plugins/bootstrap/css/bootstrap.min.css') !!}
     {!! Html::style('assets/website/css/website.min.css') !!}
     {!! Html::style('assets/website/css/stylesheet.css') !!}
     {!! Html::style('assets/website/css/mb-comingsoon-iceberg.css') !!}
     {!! Html::style('assets/plugins/font-awesome/css/font-awesome.min.css') !!}
-    {!! Html::script('assets/plugins/jquery/dist/jquery.min.js') !!}
+    {!! Html::script('assets/plugins/jquery/jquery.min.js') !!}
     {!! Html::script('assets/website/js/modernizr.custom.97074.js') !!}
     <!--[if lt IE 9]>
     {!! Html::script('assets/js/html5shiv.js') !!}{!! Html::script('assets/js/respond.min.js') !!}
     <![endif]-->
+    @yield('style')
     <style>
         .text-head {
             color : #FFF;
@@ -25,7 +26,7 @@
 @include('website.templates.layouts.navbar')
 @yield('content')
 @include('website.templates.layouts.footer')
-{!! Html::script('assets/plugins/bootstrap/dist/js/bootstrap.min.js') !!}
+{!! Html::script('assets/plugins/bootstrap/js/bootstrap.min.js') !!}
 {!! Html::script('assets/website/js/classie.js') !!}
 {!! Html::script('assets/website/js/cbpAnimatedHeader.js') !!}
 {!! Html::script('assets/website/js/jquery.mb-comingsoon.min.js') !!}
@@ -43,5 +44,6 @@
         $(' #da-thumbs > li ').each(function () { $(this).hoverdir(); });
     });
 </script>
+@yield('script')
 </body>
 </html>

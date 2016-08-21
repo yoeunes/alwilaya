@@ -16,7 +16,7 @@ class WebsiteController extends Controller {
         return view('website.contactUs');
     }
 
-    public function addClaim($step = 1) {
-        return 'addClaim : ' . $step;
+    public function addClaim() {
+        return view('website.addClaim');
     }
 }
