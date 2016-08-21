@@ -23,6 +23,8 @@ elixir(function (mix) {
     .copy('bower/jquery.steps/demo/css/jquery.steps.css', 'public/assets/plugins/jquery.steps/css/jquery.steps.css')
     .copy('bower/jquery.steps/build/jquery.steps.min.js', 'public/assets/plugins/jquery.steps/js/jquery.steps.min.js')
 
+    .copy('bower/formvalidation.io/vendor/formvalidation', 'public/assets/plugins/formvalidation')
+
     .sass([
         'website.scss'
     ], 'public/assets/website/css/website.min.css');
